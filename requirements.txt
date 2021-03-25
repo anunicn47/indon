@@ -46,7 +46,7 @@ requests
 rarfile
 search-engine-parser
 speedtest-cli
-sqlalchemy
+sqlalchemy<=1.3.23
 telethon
 telethon-session-sqlalchemy
 urbandict
