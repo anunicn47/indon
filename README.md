@@ -9,7 +9,7 @@
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?label=telethon&logo=pypi&logoColor=white&style=flat-square" /></a>
 </p>
 
-![logo](https://telegra.ph/file/b93d636acd286a8c5fd9d.mp4)
+![logo](https://telegra.ph/file/c899bdedfe8efd69a6f8f.jpg)
 
 ```
 #include <std/disclaimer.h>
