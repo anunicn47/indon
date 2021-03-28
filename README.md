@@ -29,15 +29,16 @@
 
 A modular Telegram Userbot running on Python3 with sqlalchemy database. 
 
-based on [ProjectBish](https://github.com/adekmaulana/ProjectBish) Userbot
+based on [NightCore](https://github.com/IrhamFadzillah/NightCore) Userbot
  
  ## Host
-Repo ini adalah clone dari repo [NightCore](https://github.com/IrhamFadzillah/NightCore)
+
 
 Click this button below to Deploy to Heroku
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ez69bw/ezbwbot"> <img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku"/></a></p>
 
 ## Credits
+* [Irham Fadzillah](https://github.com/IrhamFadzillah) - NightCore
 * [Adek Maulana](https://github.com/adekmaulana) - ProjectBish
 * [Mr. Miss](https://github.com/keselekpermen69) - UserButt
 * [Move Angel](https://github.com/MoveAngel) - One4uBot
