@@ -64,7 +64,7 @@ async def set_afk(afk_e):
     if string:
         AFKREASON = string
         await afk_e.edit(
-            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n◉ {ALIVE_NAME} `CABS DULU!`\
+            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `CABS DULU!`\
         \n◉ `{string}`"
         )
     else:
@@ -190,7 +190,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(
-                        f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n◉ {ALIVE_NAME} `LAGI CABS!`\
+                        f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `LAGI CABS!`\
         \n◉ `{AFKREASON}`"
                     )
                 else:
@@ -275,7 +275,7 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(
-                        f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n◉ {ALIVE_NAME} `OFF DULU!`\
+                        f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `OFF DULU!`\
         \n◉ `{AFKREASON}`"
                     )
                 else:
