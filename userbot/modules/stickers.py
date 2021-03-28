@@ -253,7 +253,8 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(
-            "YAH STICKER LU UDAH MASUK KE" f"[PACK](t.me/addstickers/{packname}) GUA MWEHEHE",
+            "YAH STICKER LU UDAH MASUK KE"
+            f"[PACK](t.me/addstickers/{packname}) GUA MWEHEHE",
             parse_mode="md",
         )
 

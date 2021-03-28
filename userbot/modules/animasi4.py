@@ -534,7 +534,5 @@ CMD_HELP.update(
     \nUsage: dipanggil.\
     \n\n`.kenalan`\
     \nUsage: pakboy."
-
-
     }
 )

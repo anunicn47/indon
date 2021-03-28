@@ -162,13 +162,13 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 if AFKREASON:
                     await sender.reply(
-                    f"◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_str}`"
-                    f"\n◉ `{AFKREASON}`"
+                        f"◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_str}`"
+                        f"\n◉ `{AFKREASON}`"
                     )
                 else:
                     await sender.reply(
-                    f"◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_str}`"
-                    "\n `⧼ jangan kangen sayang ⧽`"
+                        f"◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_str}`"
+                        "\n `⧼ jangan kangen sayang ⧽`"
                     )
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
@@ -176,13 +176,13 @@ async def afk_on_pm(sender):
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
                         await sender.reply(
-                        f"◉ {ALIVE_NAME} `OFF DULU YA!`\n◉ `{afk_str}`"
-                        f"\n◉ `{AFKREASON}`"
+                            f"◉ {ALIVE_NAME} `OFF DULU YA!`\n◉ `{afk_str}`"
+                            f"\n◉ `{AFKREASON}`"
                         )
                     else:
                         await sender.reply(
-                        f"◉ {ALIVE_NANE} `LAGI GA ON!`\n◉ `{afk_str}`"
-                        "\n `⧼ jangan kangen ya syg ⧽`"
+                            f"◉ {ALIVE_NANE} `LAGI GA ON!`\n◉ `{afk_str}`"
+                            "\n `⧼ jangan kangen ya syg ⧽`"
                         )
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
@@ -207,9 +207,13 @@ async def set_afk(afk_e):
     afk_start = start1.replace(microsecond=0)
     if string:
         AFKREASON = string
-        await afk_e.edit(f"*ㅤㅤㅤㅤ     ⦿ OFF ⦿ ㅤ ㅤㅤㅤㅤ*\n\n◉ {ALIVE_NAME} `CABS DULU!`\n◉ `IM GONNA HAVING SEX`\n◉ `{AFKREASON}`")
+        await afk_e.edit(
+            f"*ㅤㅤㅤㅤ     ⦿ OFF ⦿ ㅤ ㅤㅤㅤㅤ*\n\n◉ {ALIVE_NAME} `CABS DULU!`\n◉ `IM GONNA HAVING SEX`\n◉ `{AFKREASON}`"
+        )
     else:
-        await afk_e.edit(f"*ㅤㅤㅤㅤ     ⦿ OFF ⦿ ㅤ ㅤㅤㅤㅤ*\n\nㅤㅤ◉ {ALIVE_NAME} `CABS DULU!`\nㅤ ◉ `IM GONNA HAVING SEX`")
+        await afk_e.edit(
+            f"*ㅤㅤㅤㅤ     ⦿ OFF ⦿ ㅤ ㅤㅤㅤㅤ*\n\nㅤㅤ◉ {ALIVE_NAME} `CABS DULU!`\nㅤ ◉ `IM GONNA HAVING SEX`"
+        )
     if BOTLOG:
         await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nGua off dulu!")
     ISAFK = True

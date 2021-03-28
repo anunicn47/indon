@@ -164,12 +164,10 @@ async def amireallyalive(alive):
     logo = ALIVE_LOGO
     output = (
         f"𝙚𝙯𝙗𝙬 `is running!`\n\n"
-        
         f"✇ User             : {DEFAULTUSER}\n\n"
         f"✇ Python           : {python_version()}\n\n"
         f"✇ Telethon version : {version.__version__}\n\n"
         f"✇ Bot Uptime       : {uptime}\n\n"
-        
     )
     if ALIVE_LOGO:
         try:

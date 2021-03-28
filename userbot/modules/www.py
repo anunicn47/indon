@@ -103,6 +103,7 @@ CMD_HELP.update(
     {
         "speed": ">`.speed`" "\nUsage: Does a speedtest and shows the results.",
         "dc": ">`.dc`" "\nUsage: Finds the nearest datacenter from your server.",
-        "ping": ">`.ping` ; `.awping`" "\nUsage: Shows how long it takes to ping your bot.",
+        "ping": ">`.ping` ; `.awping`"
+        "\nUsage: Shows how long it takes to ping your bot.",
     }
 )
