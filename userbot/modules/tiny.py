@@ -6,11 +6,13 @@
 
 # Alvin Ganteng
 
-from PIL import Image
-import cv2
 import os
-from userbot.events import register
+
+import cv2
+from PIL import Image
+
 from userbot import CMD_HELP, bot
+from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.tiny(?: |$)(.*)")
@@ -85,8 +87,13 @@ async def _(event):
     os.remove(file)
     os.remove(ik)
 
+
 # Port By Alvin Ganteng/liualvinas
 # Lord - Userbot
 
-CMD_HELP.update({"tiny": "`.tiny`\
-    \nPenjelasan: Untuk Memperkecil Sticker."})
+CMD_HELP.update(
+    {
+        "tiny": "`.tiny`\
+    \nPenjelasan: Untuk Memperkecil Sticker."
+    }
+)

@@ -3,8 +3,9 @@
 # @LordUserbot_Group
 # Alvin Ganteng
 
-from userbot.events import register
 from userbot import CMD_HELP, bot
+from userbot.events import register
+
 # Alvin Ganteng
 
 
@@ -26,11 +27,15 @@ async def gcast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**")
+    await kk.edit(
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+    )
+
 
 # Alvin Ganteng
 CMD_HELP.update(
     {
         "gcast": "`.gcast <pesan>`\
     \nPenjelasan: Global Broadcast mengirim pesan ke Seluruh Grup yang kamu masuki."
-    })
+    }
+)
