@@ -2,14 +2,14 @@
 
 <p align="center">
     <a href="https://app.codacy.com/gh/IrhamFadzillah/NightCore/dashboard"> <img src="https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=blue&logo=codacy&style=flat-square" alt="Codacy" /></a><br>
-    <a href="https://github.com/ez69bw/ezbwbot/stargazers"> <img src="https://img.shields.io/github/stars/IrhamFadzillah/NightCore?logo=github&style=flat-square" alt="Stars" /></a>
-    <a href="https://github.com/NightCore/NightCore/network/members"> <img src="https://img.shields.io/github/forks/IrhamFadzillah/NightCore?logo=github&style=flat-square" alt="Forks" /></a>
-    <a href="https://github.com/ez69bw/ezbwbot/watchers"> <img src="https://img.shields.io/github/watchers/IrhamFadzillah/NightCore?logo=github&style=flat-square" alt="Watch" /></a><br>
+    <a href="https://github.com/ez69bw/ezbwbot/stargazers"> <img src="https://img.shields.io/github/stars/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Stars" /></a>
+    <a href="https://github.com/ezbwbot/ezbwbot/network/members"> <img src="https://img.shields.io/github/forks/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Forks" /></a>
+    <a href="https://github.com/ez69bw/ezbwbot/watchers"> <img src="https://img.shields.io/github/watchers/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Watch" /></a><br>
     <a href="https://github.com/ez69bw/ezbwbot/graphs/contributors"> <img src="https://img.shields.io/github/contributors/ez69bw/ezbwbot?color=blue&style=flat-square" alt="Contributors" /></a>
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?label=telethon&logo=pypi&logoColor=white&style=flat-square" /></a>
 </p>
 
-![logo](https://telegra.ph/file/c899bdedfe8efd69a6f8f.jpg)
+![logo](https://telegra.ph/file/22a9fddfa09723d4e58c7.jpg)
 
 ```
 #include <std/disclaimer.h>
