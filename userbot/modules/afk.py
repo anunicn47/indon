@@ -64,11 +64,11 @@ async def set_afk(afk_e):
     if string:
         AFKREASON = string
         await afk_e.edit(
-            f"ㅤㅤㅤㅤ     *⦿ OFF ⦿* ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `CABS DULU!`\n◉ `IM GONNA HAVING SEX`\n◉ `{AFKREASON}`"
+            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `CABS DULU!`\n◉ `IM GONNA HAVING SEX`\n◉ `{AFKREASON}`"
         )
     else:
         await afk_e.edit(
-            f"ㅤㅤㅤㅤ     *⦿ OFF ⦿* ㅤ ㅤㅤㅤㅤ\n\nㅤㅤ◉ {ALIVE_NAME} `CABS DULU!`\nㅤ ◉ `IM GONNA HAVING SEX`"
+            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\nㅤㅤ◉ {ALIVE_NAME} `CABS DULU!`\nㅤ ◉ `IM GONNA HAVING SEX`"
         )
     if user.last_name:
         await afk_e.client(
@@ -189,7 +189,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(
-                        f"ㅤㅤㅤㅤ     *⦿ OFF ⦿* ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_since}`"
+                        f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `LAGI OFF!`\n◉ `{afk_since}`"
                         f"\n◉ `{AFKREASON}`"
                     )
                 else:
