@@ -19,7 +19,7 @@ async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []
-    time_suffix_list = ["Dtk", "Mnt", "Jam", "Hari"]
+    time_suffix_list = ["S", "M", "H", "D"]
 
     while count < 4:
         count += 1
@@ -45,16 +45,16 @@ async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("⚡")
+    await pong.edit("⚡⚡")
     await pong.edit("__**PING⚡**__")
-    await pong.edit("__**PIN⚡G*__")
+    await pong.edit("__**PIN⚡G**__")
     await pong.edit("__**PI⚡NG**__")
     await pong.edit("__**P⚡ING**__")
     await pong.edit("__**⚡PING⚡**__")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**⚡ᴘɪɴɢ⚡**\n"
+        f"**⚡ ᴘɪɴɢ ⚡**\n"
         f"⚡ **ᴘɪɴɢ:** "
         f"`%sms` \n"
         f"⚡ **ᴏɴʟɪɴᴇ:** "
