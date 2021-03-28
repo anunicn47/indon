@@ -64,7 +64,7 @@ async def set_afk(afk_e):
     if string:
         AFKREASON = string
         await afk_e.edit(
-            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `CABS DULU!`\
+            f"ㅤㅤㅤㅤ     **⦿ OFF ⦿** ㅤ ㅤㅤㅤㅤ\n\n◉ {ALIVE_NAME} `CABS DULU!`\n◉ `IM GONNA HAVING SEX`\
         \n◉ `{string}`"
         )
     else:
