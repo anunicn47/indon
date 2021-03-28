@@ -439,19 +439,102 @@ async def typewriter(typew):
     await typew.edit("`Muaacchhh`")
 
 
+@register(outgoing=True, pattern="^.botol(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`2 3 TUTUP BOTOL`")
+    sleep(1)
+    await typew.edit("`NORAK LU KONTOL`")
+
+
+@register(outgoing=True, pattern="^.disokin(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`beli penggaris sama pak martin`")
+    sleep(1)
+    await typew.edit("`paris disokinnn`")
+
+
+@register(outgoing=True, pattern="^.kenalan(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`kiw kiw kiw`")
+    sleep(1)
+    await typew.edit("`burung dara burung gelatik`")
+    sleep(1)
+    await typew.edit("`kenalan dong cantik xixi`")
+
+
+@register(outgoing=True, pattern="^.pek(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`jalan jalan kepasar`")
+    sleep(1)
+    await typew.edit("`jangan lupa beli sayur`")
+    sleep(1)
+    await typew.edit("`assalamualaikum guys`")
+
+
+@register(outgoing=True, pattern="^.war(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`war mulu`")
+    sleep(1)
+    await typew.edit("`war terus`")
+    sleep(1)
+    await typew.edit("`war lagi`")
+    sleep(1)
+    await typew.edit("`yaelaa`")
+
+
+@register(outgoing=True, pattern="^.masa(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`ah masa?`")
+    sleep(1)
+    await typew.edit("`ah iya?`")
+    sleep(1)
+    await typew.edit("`boong kali`")
+
+
+@register(outgoing=True, pattern="^.ara(?: |$)(.*)")
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(1)
+    await typew.edit("`ara cantik`")
+    sleep(1)
+    await typew.edit("`ara manis`")
+    sleep(1)
+    await typew.edit("`ara lucu`")
+    sleep(1)
+    await typew.edit("`tapi boong`")
+    sleep(1)
+    await typew.edit("`hehehe`")
+    sleep(1)
+    await typew.edit("`wufyu araa`")
+
+
 # Create by myself @localheart
 
 CMD_HELP.update(
     {
         "animasi4": "`.gabut` ; `.dino`\
     \nUsage: ntahlah gabut doang.\
-    \n\n`.gombal`\
+    \n\n`.gombal` ; `.cinta` ; `.sayang`\
     \nUsage: buat bercanda\
-    \n\n`.cinta`\
-    \nUsage: mengirim cintamu ke seseorang.\
-    \n\n`.sayang`\
-    \nUsage: untuk jadi buaya.\
-    \n\n`.terkadang`\
-    \nUsage: Auk dah iseng doang."
+    \n\n`.botol` ; `.masa`\
+    \nUsage: pantun ngocol.\
+    \n\n`.disokin` ; `.pek`\
+    \nUsage: dipanggil.\
+    \n\n`.kenalan`\
+    \nUsage: pakboy."
+
+
     }
 )
