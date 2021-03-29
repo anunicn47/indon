@@ -26,7 +26,7 @@ async def typewriter(typew):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
-        "Wa'alaikumsalam, Shalom, Om Swastyastu, Noma Buddhaya, Salam Kebajikan."
+        "Wa'alaikumsalam, Shalom, Om Swastyastu, Namo Buddhaya, Salam Kebajikan."
     )
 
 
