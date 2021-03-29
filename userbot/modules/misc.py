@@ -99,7 +99,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "My Repo: [ezbw](https://github.com/aliparisp/ezbwbot)\nOwner: [Irham](https://t.me/e69boys)\nSupport: [Group](https://t.me/yodahburujoin)\n\nRepo ORI: [NightCore](https://github.com/IrhamFadzillah/NightCore)"
+        "My Repo: [ezbw](https://github.com/aliparisp/ezbwbot)\nOwner: [paris](https://t.me/e69boys)\nSupport: [Group](https://t.me/yodahburujoin)\n\nRepo ORI: [NightCore](https://github.com/IrhamFadzillah/NightCore)"
     )
 
 
