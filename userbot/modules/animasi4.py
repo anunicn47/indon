@@ -503,21 +503,21 @@ async def typewriter(typew):
     await typew.edit("`boong kali`")
 
 
-@register(outgoing=True, pattern="^.ara(?: |$)(.*)")
+@register(outgoing=True, pattern="^.jeje(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
-    await typew.edit("`jjexclyn cantik`")
+    await typew.edit("**jjexclyn cantik**")
     sleep(1)
-    await typew.edit("`jjexclyn manis`")
+    await typew.edit("**jjexclyn manis**")
     sleep(1)
-    await typew.edit("`jjexclyn lucu`")
+    await typew.edit("**jjexclyn lucu**")
     sleep(1)
-    await typew.edit("`tapi boong`")
+    await typew.edit("**tapi boong**")
     sleep(1)
-    await typew.edit("`hehehe`")
+    await typew.edit("**hehehe**")
     sleep(1)
-    await typew.edit("`bismillah jjexclyn peka`")
+    await typew.edit("**bismillah jjexclyn peka**")
 
 
 # Create by myself @localheart
