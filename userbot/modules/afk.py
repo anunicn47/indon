@@ -287,7 +287,7 @@ async def afk_on_pm(sender):
                     if AFKREASON:
                         await sender.reply(
                             f"◉ {ALIVE_NAME} `LAGI OFF!`\
-        \n◉ `{AFKREASON}`\n `⧼ jangan kangen ya syg⧽`"
+        \n◉ `{AFKREASON}`\n `⧼ jangan kangen ya syg ⧽`"
                         )
                     else:
                         await sender.reply(str(choice(AFKSTR)))
