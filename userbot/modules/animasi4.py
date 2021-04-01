@@ -507,17 +507,17 @@ async def typewriter(typew):
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
-    await typew.edit("`ara cantik`")
+    await typew.edit("`jjexclyn cantik`")
     sleep(1)
-    await typew.edit("`ara manis`")
+    await typew.edit("`jjexclyn manis`")
     sleep(1)
-    await typew.edit("`ara lucu`")
+    await typew.edit("`jjexclyn lucu`")
     sleep(1)
     await typew.edit("`tapi boong`")
     sleep(1)
     await typew.edit("`hehehe`")
     sleep(1)
-    await typew.edit("`wufyu araa`")
+    await typew.edit("`bismillah jjexclyn peka`")
 
 
 # Create by myself @localheart
