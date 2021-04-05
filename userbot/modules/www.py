@@ -19,7 +19,7 @@ async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []
-    time_suffix_list = ["Dtk", "Mnt", "Jam", "Hari"]
+    time_suffix_list = ["S", "M", "H", "D"]
 
     while count < 4:
         count += 1
@@ -35,7 +35,7 @@ async def get_readable_time(seconds: int) -> str:
         up_time += time_list.pop() + ", "
 
     time_list.reverse()
-    up_time += ":".join(time_list)
+    up_time += ".".join(time_list)
 
     return up_time
 
