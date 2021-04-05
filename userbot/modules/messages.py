@@ -3,7 +3,6 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" Userbot module for purging unneeded messages(usually spam or ot). """
 
 from asyncio import sleep
 
@@ -15,7 +14,6 @@ from userbot.events import register
 
 @register(outgoing=True, pattern=r"^\.purge$")
 async def fastpurger(purg):
-    """ For .purge command, purge all messages starting from the reply. """
     chat = await purg.get_input_chat()
     msgs = []
     itermsg = purg.client.iter_messages(chat, min_id=purg.reply_to_msg_id)
@@ -24,24 +22,26 @@ async def fastpurger(purg):
     if purg.reply_to_msg_id is not None:
         async for msg in itermsg:
             msgs.append(msg)
-            count = count + 1
+            count += 1
             msgs.append(purg.reply_to_msg_id)
             if len(msgs) == 100:
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        return await purg.edit("`I need a mesasge to start purging from.`")
+        return await purg.edit("`Reply Ke Pesan!`")
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
-        purg.chat_id, "`Fast purge complete!`" f"\nPurged {str(count)} messages"
+        purg.chat_id,
+        f"`✓ Berhasil Menghapus`\
+        \n{str(count)} Pesan!",
     )
     """
     if BOTLOG:
         await purg.client.send_message(
             BOTLOG_CHATID,
-            "Purge of " + str(count) + " messages done successfully.")
+            "Berhasil Menghapus Pesan " + str(count) + " Pesan Berhasil  Dibersihkan.")
     """
     await sleep(2)
     await done.delete()
@@ -49,7 +49,6 @@ async def fastpurger(purg):
 
 @register(outgoing=True, pattern=r"^\.purgeme")
 async def purgeme(delme):
-    """ For .purgeme, delete x count of your latest message."""
     message = delme.text
     count = int(message[9:])
     i = 1
@@ -57,18 +56,18 @@ async def purgeme(delme):
     async for message in delme.client.iter_messages(delme.chat_id, from_user="me"):
         if i > count + 1:
             break
-        i = i + 1
+        i += 1
         await message.delete()
 
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "`Purge complete!` Purged " + str(count) + " messages.",
+        "`✓ Berhasil Menghapus` " + str(count) + " `Pesan!`",
     )
     """
     if BOTLOG:
         await delme.client.send_message(
             BOTLOG_CHATID,
-            "Purge of " + str(count) + " messages done successfully.")
+            "`Lord Telah Menghapus Pesan,` " + str(count) + " Pesan Telah Dihapus ツ`")
     """
     await sleep(2)
     i = 1
@@ -77,7 +76,6 @@ async def purgeme(delme):
 
 @register(outgoing=True, pattern=r"^\.del$")
 async def delete_it(delme):
-    """ For .del command, delete the replied message. """
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
         try:
@@ -86,20 +84,19 @@ async def delete_it(delme):
             """
             if BOTLOG:
                 await delme.client.send_message(
-                    BOTLOG_CHATID, "Deletion of message was successful")
+                    BOTLOG_CHATID, "`✓ Berhasil Menghapus`")
             """
         except rpcbaseerrors.BadRequestError:
-            await delme.edit("Well, I can't delete a message")
+            await delme.edit("`✗ Tidak Bisa Menghapus`")
             """
             if BOTLOG:
                 await delme.client.send_message(
-                    BOTLOG_CHATID, "Well, I can't delete a message")
+                    BOTLOG_CHATID, "`✗ Tidak Bisa Menghapus Pesan`")
             """
 
 
 @register(outgoing=True, pattern=r"^\.edit")
 async def editer(edit):
-    """ For .editme command, edit your last message. """
     message = edit.text
     chat = await edit.get_input_chat()
     self_id = await edit.client.get_peer_id("me")
@@ -110,17 +107,16 @@ async def editer(edit):
             await message.edit(string)
             await edit.delete()
             break
-        i = i + 1
+        i += 1
     """
     if BOTLOG:
         await edit.client.send_message(BOTLOG_CHATID,
-                                       "Edit query was executed successfully")
+                                       "`✓ Berhasil Mengedit Pesan`")
    """
 
 
 @register(outgoing=True, pattern=r"^\.sd")
 async def selfdestruct(destroy):
-    """ For .sd command, make seflf-destructable messages. """
     message = destroy.text
     counter = int(message[4:6])
     text = str(destroy.text[6:])
@@ -131,20 +127,21 @@ async def selfdestruct(destroy):
     """
     if BOTLOG:
         await destroy.client.send_message(BOTLOG_CHATID,
-                                          "sd query done successfully")
+                                          "`✓ SD Berhasil Dilakukan!`")
     """
 
 
 CMD_HELP.update(
     {
-        "purge": ">`.purge`" "\nUsage: Purges all messages starting from the reply.",
-        "purgeme": ">`.purgeme <x>`"
-        "\nUsage: Deletes x amount of your latest messages.",
-        "del": ">`.del`" "\nUsage: Deletes the message you replied to.",
-        "edit": ">`.edit <newmessage>`"
-        "\nUsage: Replace your last message with <newmessage>.",
-        "sd": ">`.sd <x> <message>`"
-        "\nUsage: Creates a message that selfdestructs in x seconds."
-        "\nKeep the seconds under 100 since it puts your bot to sleep.",
+        "purge": ">`.purge`"
+        "\nUsage: Membersihkan semua pesan mulai dari pesan yang dibalas.",
+        "purgeme": ">`.purgeme <angka>`"
+        "\nUsage: Menghapus jumlah pesan anda, yang mau anda hapus.",
+        "del": ">`.del`" "\nUsage: Menghapus pesan, balas ke pesan.",
+        "edit": ">`.edit <pesan baru>`"
+        "\nUsage: Ganti pesan terakhir Anda dengan <pesan baru>.",
+        "sd": ">`.sd <x> <pesan>`"
+        "\nUsage: Membuat pesan yang hancur sendiri dalam x detik."
+        "\nJaga agar detik di bawah 100 karena bot Anda akan tidur.",
     }
 )

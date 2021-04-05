@@ -1,7 +1,7 @@
 {
-  "name": "ezbw UserBot",
-  "description": "[ezbw] A modular Telegram userbot running on Python 3.8",
-  "logo": "https://telegra.ph/file/22a9fddfa09723d4e58c7.jpg",
+  "name": "𝙚𝙯𝙗𝙬",
+  "description": "[ezbw] Bot untuk bersenang-senang ditelegram.",
+  "logo": "https://telegra.ph/file/c7d9f27efffd2ac349d8a.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/ez69bw/ezbwbot",
+  "repository": "https://github.com/ez69bw/ezbw",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
   "stack": "container",
   "env": {
@@ -17,10 +17,6 @@
       "description": "Name to show in .alive message",
       "required": false
     },
-    "ALIVE_LOGO": {
-      "description": "Show Image/Logo in .alive message. Fill value of image your link image, use telegra.ph or any direct link image",
-      "required": false
-    },  	
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
       "required": true
@@ -45,7 +41,7 @@
     },
     "UPSTREAM_REPO_URL": {
       "description": "In case you maintain a fork, add your repo URL here.",
-      "value": "https://github.com/IrhamFadzillah/NightCore",
+      "value": "https://github.com/ez69bw/ezbw",
       "required": false
     },
     "COUNTRY": {
@@ -59,6 +55,7 @@
     },
     "OPEN_WEATHER_MAP_APPID": {
       "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
+      "value": "955a1d2e2a5af4666b3f04e34ea14296",
       "required": false
     },
     "BOTLOG": {
@@ -79,10 +76,12 @@
     },
     "OCR_SPACE_API_KEY": {
       "description": "OCR API Key for .ocr command. Get from https://ocr.space/ocrapi",
+      "value": "0c2078b99188957",
       "required": false
     },
     "REM_BG_API_KEY": {
       "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
+      "value": "GPLyodhzj3uY2fnJbSsnKek8",
       "required": false
     },
     "ANTI_SPAMBOT": {
@@ -123,7 +122,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "Hooman",
+      "value": "ezbw join!",
       "required": false
     },
     "G_DRIVE_DATA": {
@@ -136,6 +135,7 @@
     },
     "WEATHER_DEFCITY": {
       "description": "Set the default city for the userbot's weather module.",
+      "value": "Jakarta",
       "required": false
     },
     "USR_TOKEN_UPTOBOX": {
@@ -150,6 +150,16 @@
       "description": "Input your DEEZER ARL TOKEN",
       "value": "",
       "required": false
+    },
+    "S_PACK_NAME": {
+      "description": "nama kustom pack mu.",
+      "value": "",
+      "required": false
+    },
+  "YOUTUBE_API_KEY": {
+    "description": "Youtube Data API Key for .yt command.",
+    "value": "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg",
+    "required": false
     }
   },
   "addons": [

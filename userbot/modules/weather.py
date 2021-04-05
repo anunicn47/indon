@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for getting the weather of a city. """
@@ -39,23 +39,23 @@ async def get_tz(con):
         return
 
 
-@register(outgoing=True, pattern=r"^\.weather(?: |$)(.*)")
+@register(outgoing=True, pattern="^.weather(?: |$)(.*)")
 async def get_weather(weather):
     """ For .weather command, gets the current weather of a city. """
 
     if not OWM_API:
-        return await weather.edit(
-            "`Get an API key from` https://openweathermap.org/ `first.`"
-        )
+        await weather.edit("`Get an API key from` https://openweathermap.org/ `first.`")
+        return
 
     APPID = OWM_API
 
     if not weather.pattern_match.group(1):
         CITY = DEFCITY
         if not CITY:
-            return await weather.edit(
+            await weather.edit(
                 "`Please specify a city or set one as default using the WEATHER_DEFCITY config variable.`"
             )
+            return
     else:
         CITY = weather.pattern_match.group(1)
 
@@ -74,7 +74,8 @@ async def get_weather(weather):
             try:
                 countrycode = timezone_countries[f"{country}"]
             except KeyError:
-                return await weather.edit("`Invalid country.`")
+                await weather.edit("`✗ Gagal Mengakses Tempat.`")
+                return
             CITY = newcity[0].strip() + "," + countrycode.strip()
 
     url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={APPID}"
@@ -82,7 +83,8 @@ async def get_weather(weather):
     result = json.loads(request.text)
 
     if request.status_code != 200:
-        return await weather.edit(f"`Invalid country.`")
+        await weather.edit("`✗ Gagal Mengakses Tempat.`")
+        return
 
     cityname = result["name"]
     curtemp = result["main"]["temp"]
@@ -137,7 +139,7 @@ async def get_weather(weather):
 
 CMD_HELP.update(
     {
-        "weather": ">`.weather <city> or .weather <city>, <country name/code>`"
-        "\nUsage: Gets the weather of a city."
+        "weather": "`.weather` <city> or `.weather` <city>, <country name/code>\
+    \nUsage: Gets the weather of a city."
     }
 )

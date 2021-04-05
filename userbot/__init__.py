@@ -78,7 +78,7 @@ HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/IrhamFadzillah/NightCore.git")
+    "https://github.com/hbreakclub/ezbw.git")
 # UPSTREAM_REPO_URL branch, the default is master
 UPSTREAM_REPO_BRANCH = os.environ.get(
     "UPSTREAM_REPO_BRANCH", "master")
@@ -92,10 +92,13 @@ DB_URI = os.environ.get("DATABASE_URL", None)
 # OCR API key
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
 
+# Sticker Custom Pack Name
+S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
+
 # Default .alive name anf logo
 ALIVE_NAME = os.environ.get("ALIVE_NAME") or None
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/b93d636acd286a8c5fd9d.mp4.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/c7d9f27efffd2ac349d8a.jpg"
 
 # remove.bg API key
 REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
@@ -115,6 +118,12 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
 # Default .alive name
 ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+
+# Bot Name
+TERM_ALIAS = os.environ.get("TERM_ALIAS", "𝙚𝙯𝙗𝙬")
+
+# Bot version
+BOT_VER = os.environ.get("BOT_VER", "4.0")
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY", ""))
@@ -215,6 +224,20 @@ async def check_botlog_chatid():
 with bot:
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)
+
+
+async def check_alive():
+    await bot.send_message(BOTLOG_CHATID, "**﹝𝙚𝙯𝙗𝙬 ᴊᴏɪɴ﹞**")
+    return
+
+with bot:
+    try:
+        bot.loop.run_until_complete(check_alive())
     except BaseException:
         LOGS.info(
             "BOTLOG_CHATID environment variable isn't a "

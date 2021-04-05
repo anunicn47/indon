@@ -1,5 +1,11 @@
+"""
+credits to @mrconfused
+dont edit credits
+"""
+#  Copyright (C) 2020  sandeep.n(π.$)
+
+
 import asyncio
-from datetime import datetime
 
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditBannedRequest
@@ -34,12 +40,11 @@ UNBAN_RIGHTS = ChatBannedRights(
 )
 
 
-@register(outgoing=True, pattern=r"^\.gban(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.gbans(?: |$)(.*)")
 async def global_ban(event):
     if event.fwd_from:
         return
-    await event.edit("`Initiate Global Ban...`")
-    start = datetime.now()
+    await event.edit("`*It's global banned time* `")
     user, reason = await get_user_from_event(event)
     if not user:
         return
@@ -47,7 +52,8 @@ async def global_ban(event):
         return await event.edit("`Why would you gban yourself?`")
     if gban_sql.is_gbanned(user.id):
         await event.edit(
-            f"the [user](tg://user?id={user.id}) is already in gbanned list any way checking again"
+            "**#Already_GBanned**\n\nUser Already Exists in My Gban List.\n"
+            f"**Reason For GBan:** `{reason}`"
         )
     else:
         gban_sql.catgban(user.id, reason)
@@ -68,8 +74,11 @@ async def global_ban(event):
             "`You need to be at least admin in 1 group to gban someone!`"
         )
     await event.edit(
-        f"Initiating Global Ban to [{user.first_name}](tg://user?id={user.id}) in `{len(groups_admin)}` groups"
+        r"\\**#GBanned_User**//"
+        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+        f"**User ID:** `{user.id}`\n**Reason:** `{reason}`"
     )
+
     for i in range(len(groups_admin)):
         try:
             await event.client(
@@ -90,30 +99,20 @@ async def global_ban(event):
         await event.edit(
             "`I dont have message deleting rights here! But still he was gbanned!`"
         )
-    time_taken = (datetime.now() - start).seconds
-    if reason:
-        await event.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) was gbanned in `{count}` groups in `{time_taken}` seconds!\nReason: `{reason}`"
-        )
-    else:
-        await event.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) was gbanned in `{count}` groups in `{time_taken}` seconds!"
-        )
 
     if BOTLOG and count != 0:
         await event.client.send_message(
             BOTLOG_CHATID,
             f"#GBAN\nGlobal BAN\nUser: [{user.first_name}](tg://user?id={user.id})\nID: `{user.id}`\
-                                                \nReason: `{reason}`\nBanned in `{count}` groups\nTime taken = `{time_taken}` seconds",
+                                                \nReason: `{reason}`",
         )
 
 
-@register(outgoing=True, pattern=r"^\.ungban(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.ungbans(?: |$)(.*)")
 async def unglobal_ban(event):
     if event.fwd_from:
         return
-    await event.edit("ungbaning.....")
-    start = datetime.now()
+    await event.edit("I'll give . a second chance")
     user, reason = await get_user_from_event(event)
     if not user:
         return
@@ -141,8 +140,11 @@ async def unglobal_ban(event):
             "`You need to be at least admin in 1 group to gban someone!`"
         )
     await event.edit(
-        f"initiating ungban of the [{user.first_name}](tg://user?id={user.id}) in `{len(groups_admin)}` groups"
+        r"\\**#UnGbanned_User**//"
+        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+        f"**User ID:** `{user.id}`"
     )
+
     for i in range(len(groups_admin)):
         try:
             await event.client(
@@ -155,21 +157,12 @@ async def unglobal_ban(event):
                 BOTLOG_CHATID,
                 f"You don't have required permission in :\nCHAT: {event.chat.title}(`{event.chat_id}`)\nFor unbaning here",
             )
-    time_taken = (datetime.now() - start).seconds
-    if reason:
-        await event.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) was ungbanned in `{count}` groups in `{time_taken}` seconds!\nReason: `{reason}`"
-        )
-    else:
-        await event.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) was ungbanned in `{count}` groups in `{time_taken}` seconds!"
-        )
 
     if BOTLOG and count != 0:
         await event.client.send_message(
             BOTLOG_CHATID,
             f"#UNGBAN\nGlobal UNBAN\nUser: [{user.first_name}](tg://user?id={user.id})\nID: {user.id}\
-                                                \nReason: `{reason}`\nUnbanned in `{count}` groups\nTime taken = `{time_taken}` seconds",
+                                                \nReason: `{reason}`",
         )
 
 
@@ -182,24 +175,9 @@ async def gablist(event):
     if len(gbanned_users) > 0:
         for a_user in gbanned_users:
             if a_user.reason:
-                GBANNED_LIST += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) for {a_user.reason}\n"
+                GBANNED_LIST += f"ðŸ‘‰ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) for {a_user.reason}\n"
             else:
-                GBANNED_LIST += (
-                    f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) Reason None\n"
-                )
+                GBANNED_LIST += f"ðŸ‘‰ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) Reason None\n"
     else:
         GBANNED_LIST = "no Gbanned Users (yet)"
-    if len(GBANNED_LIST) > 4095:
-        with io.BytesIO(str.encode(GBANNED_LIST)) as out_file:
-            out_file.name = "Gbannedusers.text"
-            await event.client.send_file(
-                event.chat_id,
-                out_file,
-                force_document=True,
-                allow_cache=False,
-                caption="Current Gbanned Users",
-                reply_to=event,
-            )
-            await event.delete()
-    else:
         await event.edit(GBANNED_LIST)

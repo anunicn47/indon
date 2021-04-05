@@ -20,25 +20,18 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP
+from userbot import S_PACK_NAME as custompack
+from userbot import bot
 from userbot.events import register
 
 KANGING_STR = [
-    "ey bagus bgt gua curi ahhh..",
-    "gua curi yaa anj xixi",
-    "curi sticker dulu yee kan",
-    "ehh, mantep nih.....aku ambil yaa kaka",
-    "bagus eaaaa....\nambil ahh....",
-    "ini sticker aku ambil yaa\nDUARR!",
-    "leh ugha ni sticker\ncurry ahh~",
-    "dar der dor!!!\nni sticker punya aing sekarang hehe",
-    "bentar boss, ane curry dulu",
-    "aihh, bagus nih\ncurry ahh~",
-    "Curry lagi yee kan.....",
-    "CURRY TROSS!!!",
-    "curry Sticker ahh.....",
-    "curry dolo boss",
-    "swiper jangan mencurry",
+    "eyoo wassup y'all..",
+    "piw piw piw gua curry ya hehe",
+    "im gonna kang ur tikel wuuuu",
+    "bismillah mencuri",
+    "eyy u are my dumbest friends mwehehe",
+    "eum curi oke mksi smsm",
 ]
 
 
@@ -106,6 +99,7 @@ async def kang(args):
                 emoji = splat[1]
 
         packname = f"a{user.id}_by_{user.username}_{pack}"
+        f"{custompack}" or f"{f_name}"
         packnick = f"{pack} punya @{user.username}"
         cmd = "/newpack"
         file = io.BytesIO()

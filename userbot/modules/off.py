@@ -43,7 +43,7 @@ afk_start = {}
 # =================================================================
 
 
-@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
+@register(outgoing=True, pattern="^.off(?: |$)(.*)", disable_errors=True)
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602
@@ -82,7 +82,7 @@ async def set_afk(afk_e):
             UpdateProfileRequest(first_name=user.first_name, last_name="⧼ OFF ⧽")
         )
     if BOTLOG:
-        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\n**Paris Telah OFF!**")
+        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\n**Telah OFF!**")
     ISAFK = True
     afk_time = datetime.now()  # pylint:disable=E0602
     raise StopPropagation
@@ -300,10 +300,10 @@ async def afk_on_pm(sender):
 
 CMD_HELP.update(
     {
-        "afk": "**Modules: `AFK`\
-    \n\n**• Perintah:** `.afk`\
+        "off": "**Modules: `OFF`\
+    \n\n**• Perintah:** `.off`\
     \n**➥ Penjelasan:** __Siapapun Yang Balas, Tag, Atau Chat Kamu__\
-__Mereka Akan Tau Alasan Kamu OFF__.\n\n**Note:** `AFK Bisa Dilakukan Dan Dibatalkan Dimanapun.`\
+__Mereka Akan Tau Alasan Kamu OFF__.\n\n**Note:** `OFF Bisa Dilakukan Dan Dibatalkan Dimanapun.`\
 "
     }
 )

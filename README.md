@@ -1,52 +1,53 @@
-# ezbw Userbot
+# 𝙚𝙯𝙗𝙬
+![ezbw Logo](https://telegra.ph/file/c7d9f27efffd2ac349d8a.jpg)
 
-<p align="center">
-    <a href="https://app.codacy.com/gh/IrhamFadzillah/NightCore/dashboard"> <img src="https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=blue&logo=codacy&style=flat-square" alt="Codacy" /></a><br>
-    <a href="https://github.com/ez69bw/ezbwbot/stargazers"> <img src="https://img.shields.io/github/stars/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Stars" /></a>
-    <a href="https://github.com/ezbwbot/ezbwbot/network/members"> <img src="https://img.shields.io/github/forks/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Forks" /></a>
-    <a href="https://github.com/ez69bw/ezbwbot/watchers"> <img src="https://img.shields.io/github/watchers/ez69bw/ezbwbot?logo=github&style=flat-square" alt="Watch" /></a><br>
-    <a href="https://github.com/ez69bw/ezbwbot/graphs/contributors"> <img src="https://img.shields.io/github/contributors/ez69bw/ezbwbot?color=blue&style=flat-square" alt="Contributors" /></a>
-    <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?label=telethon&logo=pypi&logoColor=white&style=flat-square" /></a>
+## <p align="center">𝙚𝙯𝙗𝙬</p>
+
+
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ez69bw/ezbw/"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-magenta?style=flat&logo=heroku" width="210" height="34.45" /></a></p>
+
+<br>
 </p>
 
-![logo](https://telegra.ph/file/22a9fddfa09723d4e58c7.jpg)
+
+<h3 align="center">Userbot Yang Digunakan Untuk Bersenang-Senang Di Telegram</h3>
+<p align="center">&nbsp;</p>
+
+### Repo 𝙚𝙯𝙗𝙬
+Repo Yang Dibuat [Paris](https://t.me/e69boys) Dari Berbagai Repo Userbot Github 
+
+
+## Bagaimana Cara Deploy?
 
 ```
-#include <std/disclaimer.h>
-/**
-    Your Telegram account may get banned.
-    I am not responsible for any improper use of this bot
-    This bot is intended for the purpose of having fun with memes,
-    as well as efficiently managing groups.
-    You ended up spamming groups, getting reported left and right,
-    and you ended up in a Finale Battle with Telegram and at the end
-    Telegram Team deleted your account?
-    And after that, then you pointed your fingers at us
-    for getting your acoount deleted?
-    I will be rolling on the floor laughing at you.
-/**
+* **CARA DEPLOY** 🔧
+
+  > Pertama Dapatkan API_KE & API_HASH Di my.telegram.org (Wajib)
+
+  > Dapatkan String Session Di Termux (Wajib)
+
+  > Next Tekan Tombol Deploy Dibawah
+
+  > Isi Datanya Lalu Tekan Deploy Lagi
+
+  > Terakhir Hidupkan Dyno Lalu Check Logs (settings -> view logs) Jika Berhasil Enjoy :)
 ```
 
-A modular Telegram Userbot running on Python3 with sqlalchemy database. 
+## Credit
+TERIMAKASIH UNTUK
 
-based on [NightCore](https://github.com/IrhamFadzillah/NightCore) Userbot
- 
- ## Host
-
-
-Click this button below to Deploy to Heroku
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ez69bw/ezbwbot"> <img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku"/></a></p>
-
-## Credits
-* [Irham Fadzillah](https://github.com/IrhamFadzillah) - NightCore
-* [Adek Maulana](https://github.com/adekmaulana) - ProjectBish
-* [Mr. Miss](https://github.com/keselekpermen69) - UserButt
-* [Move Angel](https://github.com/MoveAngel) - One4uBot
-* [Aidil Aryanto](https://github.com/aidilaryanto) - ProjectDils
-* [Alfianandaa](https://github.com/alfianandaa) - ProjectAlf
-* [GengKapak](https://github.com/GengKapak) - DCLXVI
-
-and [everyone](https://github.com/ez69bw/ezbwbot/graphs/contributors) that makes this userbot awesome :D
-
-## License
-Licensed under [Raphielscape Public License](https://github.com/IrhamFadzillah/NightCore/blob/master/LICENSE) - Version 1.d, February 2020
+*   [Alvin](https://github.com/Zora24) - Lord-Userbot
+*   [RaphielGang](https://github.com/RaphielGang) - Telegram-Paperplane
+*   [AvinashReddy3108](https://github.com/AvinashReddy3108) - PaperplaneExtended
+*   [Mkaraniya](https://github.com/mkaraniya) & [Dev73](https://github.com/Devp73) - OpenUserBot
+*   [Mr.Miss](https://github.com/keselekpermen69) - UserButt
+*   [adekmaulana](https://github.com/adekmaulana) - ProjectBish
+*   [MoveAngel](https://github.com/MoveAngel) - One4uBot
+*   [AidilAryanto](https://github.com/aidilaryanto) - ProjectDils 
+*   [Alfianandaa](https://github.com/alfianandaa/ProjectAlf) - ProjectAlf
+*   [AnggaR69s](https://github.com/GengKapak/DCLXVI) - DCLXVI
+*   [kandnub](https://github.com/kandnub) - TG-UserBot
+*   [༺αиυвιѕ༻](https://github.com/Dark-Princ3) - X-tra-Telegram
+*   [Sahyam2019](https://github.com/sahyam2019/oub-remix) - oub-remix
+*   [TeamUserge](https://github.com/UsergeTeam/Userge) - Userge
+*   DAN BANYAK LAGI 

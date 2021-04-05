@@ -18,7 +18,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern="^.lord(?: |$)(.*)")
+@register(outgoing=True, pattern="^.argh(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit(
@@ -122,7 +122,7 @@ async def typewriter(typew):
 
 CMD_HELP.update(
     {
-        "animasi2": "`.lord` ; `.lordalive` ; `.lordping`\
+        "animasi2": "`.argh`\
     \nUsage: bot.\
     \n\n`.sadboy`\
     \nUsage: hiks\

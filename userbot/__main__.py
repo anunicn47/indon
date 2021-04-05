@@ -12,7 +12,6 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from userbot import LOGS, bot
 from userbot.modules import ALL_MODULES
 
-
 INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
              '\n Tip: Use Country Code along with number.' \
              '\n or check your phone number and try again !'
@@ -26,7 +25,10 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("You are running NightCore Userbot")
+
+LOGS.info(
+    f"𝙚𝙯𝙗𝙬 ᴛᴇʟᴀʜ ᴀᴋᴛɪꜰ!🔥")
+
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()

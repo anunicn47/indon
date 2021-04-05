@@ -1,9 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-# credits to @AvinashReddy3108
-#
 """
 This module updates the userbot based on upstream revision
 """
@@ -16,6 +10,8 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import (
+    BOTLOG,
+    BOTLOG_CHATID,
     CMD_HELP,
     HEROKU_API_KEY,
     HEROKU_APP_NAME,
@@ -34,34 +30,9 @@ async def gen_chlog(repo, diff):
     d_form = "%d/%m/%y"
     for c in repo.iter_commits(diff):
         ch_log += (
-            f"•[{c.committed_datetime.strftime(d_form)}]: "
-            f"{c.summary} <{c.author}>\n"
+            f"•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n"
         )
     return ch_log
-
-
-async def print_changelogs(event, ac_br, changelog):
-    changelog_str = (
-        f"**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
-    )
-    if len(changelog_str) > 4096:
-        await event.edit("`Changelog is too big, view the file to see it.`")
-        file = open("output.txt", "w+")
-        file.write(changelog_str)
-        file.close()
-        await event.client.send_file(
-            event.chat_id,
-            "output.txt",
-            reply_to=event.id,
-        )
-        remove("output.txt")
-    else:
-        await event.client.send_message(
-            event.chat_id,
-            changelog_str,
-            reply_to=event.id,
-        )
-    return True
 
 
 async def update_requirements():
@@ -87,8 +58,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await event.edit(
-                "`Please set up HEROKU_APP_NAME variable"
-                " to be able to deploy your userbot...`"
+                "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
+                " untuk dapat deploy perubahan terbaru dari 𝙚𝙯𝙗𝙬.`"
             )
             repo.__del__()
             return
@@ -98,10 +69,12 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await event.edit(
-                f"{txt}\n" "`Invalid Heroku credentials for deploying userbot dyno.`"
+                f"{txt}\n`Kredensial Heroku tidak valid untuk deploy 𝙚𝙯𝙗𝙬 dyno.`"
             )
             return repo.__del__()
-        await event.edit("`Userbot dyno build in progress, please wait...`")
+        await event.edit(
+            "`[HEROKU]:" "\nDyno 𝙚𝙯𝙗𝙬 Sedang Dalam Proses, Mohon Menunggu 7-8 Menit`"
+        )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -114,20 +87,34 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             remote = repo.create_remote("heroku", heroku_git_url)
         try:
             remote.push(refspec="HEAD:refs/heads/master", force=True)
-        except Exception as error:
-            await event.edit(f"{txt}\n`Here is the error log:\n{error}`")
+        except GitCommandError as error:
+            await event.edit(f"{txt}\n`Terjadi Kesalahan Di Log:\n{error}`")
             return repo.__del__()
         build = app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
             await event.edit(
-                "`Build failed!\n" "Cancelled or there were some errors...`"
+                "`Build Gagal!\n" "Dibatalkan atau ada beberapa kesalahan...`"
             )
             await asyncio.sleep(5)
             return await event.delete()
         else:
-            await event.edit("`Sukses deploy babu!\n" "Restart, tungguin bentar...`")
+            await event.edit(
+                "`✓ 𝙚𝙯𝙗𝙬 Berhasil Di Deploy!\n" "Restarting, Mohon Menunggu.....`"
+            )
+            await asyncio.sleep(15)
+            await event.delete()
+
+        if BOTLOG:
+            await event.client.send_message(
+                BOTLOG_CHATID, "#BOT \n" "**𝙚𝙯𝙗𝙬** `Berhasil Di Perbarui!`"
+            )
+
     else:
-        await event.edit("`Please set up HEROKU_API_KEY variable...`")
+        await event.edit(
+            "`[HEROKU]:" "\nHarap Siapkan Variabel` **HEROKU_API_KEY** `.`"
+        )
+        await asyncio.sleep(10)
+        await event.delete()
     return
 
 
@@ -137,37 +124,49 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    await event.edit("`Sukses Update Babu!\n" "Babu lagi di restart... Sabar anj!`")
+    await event.edit("✓ **𝙚𝙯𝙗𝙬** `Berhasil Di Update!`")
+    await asyncio.sleep(1)
+    await event.edit("↺ **𝙚𝙯𝙗𝙬** `Di Restart....`")
+    await asyncio.sleep(1)
+    await event.edit("`Tunggu Beberapa Detik...`")
+    await asyncio.sleep(10)
+    await event.delete()
+
+    if BOTLOG:
+        await event.client.send_message(
+            BOTLOG_CHATID, "#BOT \n" "**𝙚𝙯𝙗𝙬 Telah Di Update!**"
+        )
+        await asyncio.sleep(100)
+        await event.delete()
+
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
     return
 
 
-@register(outgoing=True, pattern=r"^\.update( now| deploy|$)")
+@register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    await event.edit("`Mendapatkan Informasi, Bukan Mendapatkan Dia...`")
-    conf = event.pattern_match.group(1).strip()
+    await event.edit("`Mengecek Pembaruan, Silakan Menunggu....`")
+    conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     try:
-        txt = "`Oops.. Updater cannot continue due to "
-        txt += "some problems occured`\n\n**LOGTRACE:**\n"
+        txt = "`Pembaruan Tidak Dapat Di Lanjutkan Karena "
+        txt += "Beberapa Masalah Terjadi`\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
-        await event.edit(f"{txt}\n`directory {error} is not found`")
+        await event.edit(f"{txt}\n`Directory {error} Tidak Dapat Di Temukan`")
         return repo.__del__()
     except GitCommandError as error:
-        await event.edit(f"{txt}\n`Early failure! {error}`")
+        await event.edit(f"{txt}\n`Gagal Awal! {error}`")
         return repo.__del__()
     except InvalidGitRepositoryError as error:
         if conf is None:
             return await event.edit(
-                f"`Unfortunately, the directory {error} "
-                "does not seem to be a git repository.\n"
-                "But we can fix that by force updating the userbot using "
-                ".update now.`"
+                f"`Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
+                "\nTapi Kita Bisa Memperbarui Paksa Userbot Menggunakan .update now.`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -196,43 +195,63 @@ async def upstream(event):
     ups_rem.fetch(ac_br)
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-    """ - Special case for deploy - """
-    if conf == "deploy":
-        await event.edit("`Deploying babu, tungguin sampe mati....`")
-        await deploy(event, repo, ups_rem, ac_br, txt)
-        return
 
     if changelog == "" and force_update is False:
-        await event.edit(
-            "\n`Babu lu udah`  **up-to-date**  `with`  " f"**{UPSTREAM_REPO_BRANCH}**\n"
-        )
+        await event.edit(f"\n✓ **𝙚𝙯𝙗𝙬 Sudah Versi Terbaru**\n")
+        await asyncio.sleep(15)
+        await event.delete()
         return repo.__del__()
 
-    if conf == "" and force_update is False:
-        await print_changelogs(event, ac_br, changelog)
-        await event.delete()
-        return await event.respond('`do ".update now or .update deploy" to update.`')
+    if conf is None and force_update is False:
+        changelog_str = (
+            f"**Pembaruan Untuk 𝙚𝙯𝙗𝙬 [{ac_br}]:\n\nPembaruan:**\n`{changelog}`"
+        )
+        if len(changelog_str) > 4096:
+            await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
+            file = open("output.txt", "w+")
+            file.write(changelog_str)
+            file.close()
+            await event.client.send_file(
+                event.chat_id,
+                "output.txt",
+                reply_to=event.id,
+            )
+            remove("output.txt")
+        else:
+            await event.edit(changelog_str)
+        return await event.respond(
+            "**Perintah Untuk Update 𝙚𝙯𝙗𝙬**\n >`.update now`\n >`.update deploy`\n\n__Untuk Meng Update Fitur Terbaru Dari 𝙚𝙯𝙗𝙬.__"
+        )
 
     if force_update:
         await event.edit(
-            "`Force-Syncing to latest stable userbot code, please wait...`"
+            "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
+    else:
+        await event.edit("`↺ Loading....1%`")
+        await event.edit("`⟲ Loading....20%`")
+        await event.edit("`↺ Loading....35%`")
+        await event.edit("`⟲ Loading....77%`")
+        await event.edit("`↺ Updating...90%`")
+        await event.edit("`⟲ Tunggu Sebentar....100%`")
     if conf == "now":
-        await event.edit("`Updating babu, tungguin sampe mati....`")
         await update(event, repo, ups_rem, ac_br)
+        await asyncio.sleep(10)
+        await event.delete()
+    elif conf == "deploy":
+        await deploy(event, repo, ups_rem, ac_br, txt)
+        await asyncio.sleep(10)
+        await event.delete()
     return
 
 
 CMD_HELP.update(
     {
-        "update": ">`.update`"
-        "\nUsage: Checks if the main userbot repository has any updates "
-        "and shows a changelog if so."
-        "\n\n>`.update now`"
-        "\nUsage: Update your userbot, "
-        "if there are any updates in your userbot repository."
-        "\n\n>`.update deploy`"
-        "\nUsage: Deploy your userbot"
-        "\nThis will triggered deploy always, even no updates."
+        "update": ".update"
+        "\nUsage: Untuk Melihat Pembaruan Terbaru 𝙚𝙯𝙗𝙬."
+        "\n\n.update now"
+        "\nUsage: Memperbarui 𝙚𝙯𝙗𝙬."
+        "\n\n.update deploy"
+        "\nUsage: Memperbarui 𝙚𝙯𝙗𝙬 Dengan Cara Deploy Ulang."
     }
 )

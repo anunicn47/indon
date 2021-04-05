@@ -1,10 +1,10 @@
 # Using Groovy
 FROM biansepang/weebproject:groovy
 
-# Clone repo and prepare working directory
-RUN git clone -b master https://github.com/IrhamFadzillah/NightCore /home/NightCore/
-RUN mkdir /home/NightCore/bin/
-WORKDIR /home/NightCore/
+# ezbw
+RUN git clone -b master https://github.com/ez69bw/ezbw /home/ezbw/
+RUN mkdir /home/ezbw/bin/
+WORKDIR /home/ezbw/
 
 # Make open port TCP
 EXPOSE 80 443

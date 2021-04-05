@@ -1,3 +1,4 @@
+aiofiles
 aiohttp
 appdirs
 aria2p
@@ -56,3 +57,4 @@ python-dateutil
 validators
 scipy
 wordcloud
+opencv-python
