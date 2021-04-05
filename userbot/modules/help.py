@@ -25,16 +25,17 @@ async def help(event):
             await asyncio.sleep(200)
             await event.delete()
     else:
-        await event.edit("𝙚𝙯𝙗𝙬")
+        await event.edit("⚡⚡")
+        await event.edit("⚡𝙚𝙯𝙗𝙬⚡")
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t❱ ⌁ ❰ "
         await event.edit(
-            f"ㅤㅤ**〤 INFORMASI DYNO 〤**\n\n**━━━━━━━━━━━━━━━━━━━**\n"
+            f"ㅤㅤ**〤 𝙚𝙯𝙗𝙬 MODULES 〤**\n\n**━━━━━━━━━━━━━━━━━━━**\n"
             f"❰ {string} ❱ "
             f"\n━━━━━━━━━━━━━━━━━━━\n\n"
-            f"**Ketik Contoh** `.help afk` **Dengan nama perintah untuk melihat cara menggunakannya.**"
+            f"**Ketik contoh** `“.help afk”` **dengan nama perintah untuk melihat cara menggunakannya.**"
         )
         await asyncio.sleep(1000)
         await event.delete()
