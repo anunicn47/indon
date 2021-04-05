@@ -36,6 +36,7 @@ Repo Yang Dibuat [Paris](https://t.me/e69boys) Dari Berbagai Repo Userbot Github
 ## Credit
 TERIMAKASIH UNTUK
 
+*   [Irham Fadzillah](https://github.com/IrhamFadzillah) - NightCore
 *   [Alvin](https://github.com/Zora24) - Lord-Userbot
 *   [RaphielGang](https://github.com/RaphielGang) - Telegram-Paperplane
 *   [AvinashReddy3108](https://github.com/AvinashReddy3108) - PaperplaneExtended
