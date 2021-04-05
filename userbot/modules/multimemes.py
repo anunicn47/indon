@@ -12,7 +12,6 @@ import io
 import os
 import random
 import re
-import textwrap
 import time
 from asyncio.exceptions import TimeoutError
 from random import randint, uniform
@@ -20,7 +19,7 @@ from random import randint, uniform
 from glitch_this import ImageGlitcher
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
+from PIL import Image, ImageEnhance, ImageOps
 from telethon import events, functions, types
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeFilename
