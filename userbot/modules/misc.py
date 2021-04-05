@@ -129,7 +129,7 @@ async def repo_is_here(wannasee):
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await wannasee.edit("[﹝𝙚𝙯𝙗𝙬﹞](https://github.com/rz69bw/ezbw)")
+    await wannasee.edit("[﹝𝙚𝙯𝙗𝙬﹞](https://github.com/ez69bw/ezbw)")
 
 
 @register(outgoing=True, pattern="^.raw$")
