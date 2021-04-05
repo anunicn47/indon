@@ -2,7 +2,6 @@
    Heroku manager for your userbot
 """
 
-import asyncio
 import codecs
 import math
 import os
@@ -184,7 +183,6 @@ async def dyno_usage(dyno):
             )
 
             return True
-
 
 
 @register(outgoing=True, pattern=r"^\.logs")
