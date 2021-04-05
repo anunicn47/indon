@@ -165,7 +165,7 @@ async def amireallyalive(alive):
         f"━━━━━━━━━━━━━━━━━━━\n"
         f"✇ ᴜꜱᴇʀㅤㅤ   ㅤ : {DEFAULTUSER} \n"
         f"✇ ᴘʏᴛʜᴏɴㅤㅤㅤ: {python_version()} \n"
-        f"✇ ᴍᴏᴅᴜʟᴇꜱㅤㅤ : {len(modules)} Modules \n"
+        f"✇ ᴍᴏᴅᴜʟᴇꜱㅤㅤ : {len(modules)} \n"
         f"✇ ᴛᴇʟᴇᴛʜᴏɴㅤ    : {version.__version__} \n"
         f"✇ ʙᴏᴛ ᴜᴘᴛɪᴍᴇㅤ: {BOT_VER} \n"
         f"━━━━━━━━━━━━━━━━━━━"
