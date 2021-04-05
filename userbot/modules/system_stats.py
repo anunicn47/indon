@@ -159,7 +159,7 @@ async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     await alive.edit("`I'M ALIVE!`")
-    await alive.edit("⚡")
+    await alive.edit("⚡⚡")
     output = (
         f"**𝙚𝙯𝙗𝙬** `is running!` \n"
         f"━━━━━━━━━━━━━━━━━━━\n"
