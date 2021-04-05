@@ -33,7 +33,7 @@ async def help(event):
         await event.edit(
             f"ㅤㅤ**〤 INFORMASI DYNO 〤**\n\n**━━━━━━━━━━━━━━━━━━━**\n"
             f"❰ `{string}`"
-            f"\n━━━━━━━━━━━━━━━━━━━\n"
+            f"\n━━━━━━━━━━━━━━━━━━━\n\n"
             f"**Ketik Contoh** `.help afk` **Dengan nama perintah untuk melihat cara menggunakannya.**"
         )
         await asyncio.sleep(1000)
