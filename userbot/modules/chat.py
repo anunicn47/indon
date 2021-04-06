@@ -30,7 +30,7 @@ from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 
 
-@register(outgoing=True, pattern="^.getid(?: |$)(.*)")
+@register(outgoing=True, pattern="^.id(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -510,7 +510,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "chat": "`.getid`\
+        "chat": "`.id`\
 \nUsage: Dapatkan ID dari media Telegram mana pun, atau pengguna mana pun\
 \n\n`.getbot`\
 \nUsage: Dapatkan Bot dalam obrolan apa pun.\
