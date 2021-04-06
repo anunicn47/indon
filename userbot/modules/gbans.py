@@ -156,7 +156,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**々 GBAN 々**\n**ᴜꜱᴇʀ      : ** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **MUKA LU JELEK**"
+        f"**々 GBAN 々**\n\n**ᴜꜱᴇʀ      : ** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **MUKA LU JELEK**"
     )
 
 
@@ -234,7 +234,7 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await dark.edit(
-        f"**⋖ UN GLOBAL BANNED ⋗**\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **MUKANYANYA MINTA DIKASIANIN**"
+        f"**⋖ UN GLOBAL BANNED ⋗**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **YATIM KASIAN**"
     )
 
 
