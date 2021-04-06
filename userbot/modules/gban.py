@@ -141,7 +141,7 @@ async def unglobal_ban(event):
             "`You need to be at least admin in 1 group to gban someone!`"
         )
     await event.edit(
-         f"**々 GLOBAL BAN 々**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})"
+        f"**々 GLOBAL BAN 々**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})"
     )
 
     for i in range(len(groups_admin)):

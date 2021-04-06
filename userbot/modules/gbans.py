@@ -143,7 +143,9 @@ async def gben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await dark.edit(f"**々 GLOBAL BAN 々**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **MUKA LU JELEK**")
+                await dark.edit(
+                    f"**々 GLOBAL BAN 々**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n**ʀᴇᴀꜱᴏɴ  :** **MUKA LU JELEK**"
+                )
             except BaseException:
                 b += 1
     else:
