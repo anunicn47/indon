@@ -44,7 +44,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 async def global_ban(event):
     if event.fwd_from:
         return
-    await event.edit("`*It's global banned time* `")
+    await event.edit("`↺ Memproses global ban...`")
     user, reason = await get_user_from_event(event)
     if not user:
         return
@@ -52,8 +52,8 @@ async def global_ban(event):
         return await event.edit("`Why would you gban yourself?`")
     if gban_sql.is_gbanned(user.id):
         await event.edit(
-            "**#Already_GBanned**\n\nUser Already Exists in My Gban List.\n"
-            f"**Reason For GBan:** `{reason}`"
+            "**Already GBanned**\n\nUser already exists in my GBAN List.\n"
+            f"**Reason For GBAN:** `{reason}`"
         )
     else:
         gban_sql.catgban(user.id, reason)
@@ -74,9 +74,10 @@ async def global_ban(event):
             "`You need to be at least admin in 1 group to gban someone!`"
         )
     await event.edit(
-        r"\\**#GBanned_User**//"
-        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**User ID:** `{user.id}`\n**Reason:** `{reason}`"
+        f"**々 GLOBAL BAN 々**\n\n"
+        f"**ᴜꜱᴇʀ      :** {ALIVE_NAME}\n"
+        f"**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})\n"
+        f"**ʀᴇᴀꜱᴏɴ  :** `{reason}`"
     )
 
     for i in range(len(groups_admin)):
@@ -112,7 +113,7 @@ async def global_ban(event):
 async def unglobal_ban(event):
     if event.fwd_from:
         return
-    await event.edit("I'll give . a second chance")
+    await event.edit("`↺ Memproses ungban...`")
     user, reason = await get_user_from_event(event)
     if not user:
         return
@@ -140,9 +141,7 @@ async def unglobal_ban(event):
             "`You need to be at least admin in 1 group to gban someone!`"
         )
     await event.edit(
-        r"\\**#UnGbanned_User**//"
-        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**User ID:** `{user.id}`"
+         f"**々 GLOBAL BAN 々**\n\n**ᴜꜱᴇʀ      :** `{ALIVE_NAME}`\n**ᴛᴀʀɢᴇᴛ  :** [{user.first_name}](tg://user?id={user.id})"
     )
 
     for i in range(len(groups_admin)):
