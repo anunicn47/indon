@@ -99,8 +99,8 @@ async def kang(args):
                 emoji = splat[1]
 
         packname = f"a{user.id}_by_{user.username}_{pack}"
-        f"{custompack}" or f"{f_name}"
-        packnick = f"{pack} punya @{user.username}"
+        custom_packnick = f"{custompack}" or f"{f_name}"
+        packnick = f"{custom_packnick}" or f"{pack} punya @{user.username}"
         cmd = "/newpack"
         file = io.BytesIO()
 
@@ -132,7 +132,7 @@ async def kang(args):
                 while "120" in x.text:
                     pack += 1
                     packname = f"a{user.id}_by_{user.username}_{pack}"
-                    packnick = f"{pack} punya @{user.username}"
+                    packnick = f"{custom_packnick}" or f"{pack} punya @{user.username}"
                     await args.edit(
                         "`Switching to Pack "
                         + str(pack)
@@ -248,7 +248,7 @@ async def kang(args):
 
         await args.edit(
             "KALO STICKER LU GAMAU MASUK KE "
-            f"[PACK](t.me/addstickers/{packname}) GUA  YA GAUSAH DISEBAR MWEHEHE",
+            f"[PACK](t.me/addstickers/{packname}) GUA YA GAUSAH DISEBAR MWEHEHE",
             parse_mode="md",
         )
 
