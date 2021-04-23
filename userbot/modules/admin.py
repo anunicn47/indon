@@ -727,7 +727,9 @@ async def kick(usr):
             f"**ʙʏᴇ ᴋɪɴᴛɪʟ!**\n➣ ɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\n➢ ʀᴇᴀꜱᴏɴ   : {reason}"
         )
     else:
-        await usr.edit(f"**ʙʏᴇ** [{user.first_name}](tg://user?id={user.id}) **ᴋɪɴᴛɪʟ!**")
+        await usr.edit(
+            f"**ʙʏᴇ** [{user.first_name}](tg://user?id={user.id}) **ᴋɪɴᴛɪʟ!**"
+        )
 
     if BOTLOG:
         await usr.client.send_message(
