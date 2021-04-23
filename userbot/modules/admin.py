@@ -151,7 +151,7 @@ async def promote(promt):
     # Try to promote if current user is admin or creator
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`✓ Promosi berhasil!`")
+        await promt.edit("`✓ Promote berhasil!`")
     except RightForbiddenError:
         return await promt.edit(NO_PERM)
 
@@ -208,7 +208,7 @@ async def demote(dmod):
     # Assume we don't have permission to demote
     except BadRequestError:
         return await dmod.edit(NO_PERM)
-    await dmod.edit("`✓ Sukses turunin jadi gelandangan!`")
+    await dmod.edit("`✓ Demote Berhasil!`")
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
@@ -259,11 +259,11 @@ async def ban(bon):
     # Shout out the ID, so that fedadmins can fban later
     if reason:
         await bon.edit(
-            f"**⋖ BAN ⋗**\nɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\nᴜꜱᴇʀㅤㅤ: `{str(user.id)}`\nʀᴇᴀꜱᴏɴ   : {reason}"
+            f"ㅤㅤ  ㅤ **〔 𝘽𝘼𝙉𝙉𝙀𝘿 〕** ㅤㅤㅤㅤ\n━━━━━━━━━━━━━━━━━━━\n➤ **ɴᴀᴍᴇ   ㅤ:** [{user.first_name}](tg://user?id={user.id}) \n➤ **ᴜꜱᴇʀㅤㅤ:** `{str(user.id)}` \n➤ **ʀᴇᴀꜱᴏɴ   :** {reason} \n━━━━━━━━━━━━━━━━━━━"
         )
     else:
         await bon.edit(
-            f"**⋖ BYE KONTOL GUA BAN ⋗**\nɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\nᴜꜱᴇʀㅤㅤ: `{str(user.id)}`"
+            f"*ㅤㅤ     ㅤ **⋖ 𝘽𝘼𝙉𝙉𝙀𝘿 ⋗**ㅤㅤㅤㅤ\n━━━━━━━━━━━━━━━━━━━\n➣ **ᴜꜱᴇʀ      :** [{user.first_name}](tg://user?id={user.id})\n➢ **ᴛᴀʀɢᴇᴛ  :**  `{str(user.id)}`\n━━━━━━━━━━━━━━━━━━━"
         )
     # Announce to the logging group if we have banned the person
     # successfully!
@@ -357,10 +357,10 @@ async def spider(spdr):
             # Announce that the function is done
             if reason:
                 await spdr.edit(
-                    f"`Gabisa nimbrung ya HAHA`\nɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\nʀᴇᴀꜱᴏɴ   : {reason}"
+                    f"ㅤㅤ  ㅤㅤ**々 𝙈𝙐𝙏𝙀 々**ㅤㅤㅤㅤ\n━━━━━━━━━━━━━━━━━━━\n➣ ɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\n➢ ʀᴇᴀꜱᴏɴ   : {reason} \n━━━━━━━━━━━━━━━━━━━"
                 )
             else:
-                await spdr.edit(f"`✓ {user.first_name} Berhasil Di Unmute!`")
+                await spdr.edit(f"`✓ {user.first_name} Berhasil Dimute!`")
 
             # Announce to logging group
             if BOTLOG:
@@ -724,10 +724,10 @@ async def kick(usr):
 
     if reason:
         await usr.edit(
-            f"**ʙʏᴇ ᴋɪɴᴛɪʟ!**\nɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})`!`\nʀᴇᴀꜱᴏɴ   : {reason}"
+            f"**ʙʏᴇ ᴋɪɴᴛɪʟ!**\n➣ ɴᴀᴍᴇ   ㅤ: [{user.first_name}](tg://user?id={user.id})\n➢ ʀᴇᴀꜱᴏɴ   : {reason}"
         )
     else:
-        await usr.edit(f"`bye kintil` [{user.first_name}](tg://user?id={user.id})`!`")
+        await usr.edit(f"**ʙʏᴇ** [{user.first_name}](tg://user?id={user.id}) **ᴋɪɴᴛɪʟ!**")
 
     if BOTLOG:
         await usr.client.send_message(
