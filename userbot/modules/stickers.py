@@ -179,7 +179,7 @@ async def kang(args):
                         await bot.send_read_acknowledge(conv.chat_id)
                         return await args.edit(
                             "__S1 dalam pencurian berhasil mencuri__"
-                            f"\\[stickers](t.me/addstickers/{packname})__!__",
+                            f"[stickers](t.me/addstickers/{packname})__!__",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -247,7 +247,7 @@ async def kang(args):
 
         await args.edit(
             "__S1 dalam pencurian berhasil mencuri__"
-            f"\\[stickers](t.me/addstickers/{packname})__!__",
+            f"[stickers](t.me/addstickers/{packname})__!__",
             parse_mode="md",
         )
 
