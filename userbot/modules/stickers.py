@@ -19,9 +19,10 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from userbot import CMD_HELP, S_PACK_NAME as custompack, bot
+from userbot import CMD_HELP
+from userbot import S_PACK_NAME as custompack
+from userbot import bot
 from userbot.events import register
-
 
 KANGING_STR = [
     "eyoo wassup y'all..",
@@ -178,7 +179,7 @@ async def kang(args):
                         await bot.send_read_acknowledge(conv.chat_id)
                         return await args.edit(
                             "__S1 dalam pencurian berhasil mencuri__"
-                            f"\[stickers](t.me/addstickers/{packname})__!__",
+                            f"\\[stickers](t.me/addstickers/{packname})__!__",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -246,7 +247,7 @@ async def kang(args):
 
         await args.edit(
             "__S1 dalam pencurian berhasil mencuri__"
-           f"\[stickers](t.me/addstickers/{packname})__!__",
+            f"\\[stickers](t.me/addstickers/{packname})__!__",
             parse_mode="md",
         )
 
@@ -278,9 +279,7 @@ async def resize_photo(photo):
 @register(outgoing=True, pattern=r"^\.stkrinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
-        return await event.edit(
-            "`Balas Ke Sticker`"
-        )
+        return await event.edit("`Balas Ke Sticker`")
 
     rep_msg = await event.get_reply_message()
     if not rep_msg.document:
@@ -361,4 +360,6 @@ CMD_HELP.update(
         "\n\n>`.stkrinfo`"
         "\nUsage: Dapatkan Informasi Pack Sticker."
         "\n\n>`.getsticker`"
-        "\nUsage: Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker."})
+        "\nUsage: Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker."
+    }
+)
