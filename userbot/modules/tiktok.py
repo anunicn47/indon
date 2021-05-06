@@ -34,7 +34,7 @@ async def _(event):
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await event.edit(
-                "**Kesalahan:** `Lord Mohon Buka Blokir` @ttsavebot `Dan Coba Lagi!`"
+                "**Kesalahan:** `Buka Blokir` @ttsavebot `Dan Coba Lagi!`"
             )
             return
         await bot.send_file(event.chat_id, video)
