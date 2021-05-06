@@ -35,7 +35,7 @@ opener.addheaders = [("User-agent", useragent)]
 
 @register(outgoing=True, pattern="^.random")
 async def randomise(items):
-    """ For .random command, get a random item from the list of items. """
+    """For .random command, get a random item from the list of items."""
     itemo = (items.text[8:]).split()
     if len(itemo) < 2:
         await items.edit(
@@ -50,7 +50,7 @@ async def randomise(items):
 
 @register(outgoing=True, pattern="^.sleep ([0-9]+)$")
 async def sleepybot(time):
-    """ For .sleep command, let the userbot snooze for a few second. """
+    """For .sleep command, let the userbot snooze for a few second."""
     counter = int(time.pattern_match.group(1))
     await time.edit("`I am sulking and snoozing...`")
     if BOTLOG:
@@ -65,7 +65,7 @@ async def sleepybot(time):
 
 @register(outgoing=True, pattern="^.shutdown$")
 async def killdabot(event):
-    """ For .shutdown command, shut the bot down."""
+    """For .shutdown command, shut the bot down."""
     await event.edit("`Mematikan 𝙚𝙯𝙗𝙬....`")
     await asyncio.sleep(7)
     await event.delete()
@@ -122,13 +122,13 @@ async def repeat(rep):
 
 @register(outgoing=True, pattern=r"^\.repoori$")
 async def repo_is_here(wannasee):
-    """ For .repo command, just returns the repo URL. """
+    """For .repo command, just returns the repo URL."""
     await wannasee.edit("[Nightcore](https://github.com/IrhamFadzillah/Nightcore)")
 
 
 @register(outgoing=True, pattern=r"^\.repo$")
 async def repo_is_here(wannasee):
-    """ For .repo command, just returns the repo URL. """
+    """For .repo command, just returns the repo URL."""
     await wannasee.edit("[﹝𝙚𝙯𝙗𝙬﹞](https://github.com/ez69bw/ezbw)")
 
 
@@ -158,7 +158,7 @@ async def raw(event):
 
 @register(outgoing=True, pattern=r"^.reverse(?: |$)(\d*)")
 async def okgoogle(img):
-    """ For .reverse command, Google search images and stickers. """
+    """For .reverse command, Google search images and stickers."""
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
 

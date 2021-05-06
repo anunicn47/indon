@@ -192,7 +192,7 @@ async def amireallyalive(alive):
 
 @register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):
-    """ For .aliveu command, change the username in the .alive command. """
+    """For .aliveu command, change the username in the .alive command."""
     message = username.text
     output = ".aliveu [username] tidak boleh kosong"
     if not (message == ".aliveu" or message[7:8] != " "):
