@@ -99,7 +99,7 @@ async def kang(args):
         u_name = user.username
         f_name = user.first_name
         packname = f"by{u_name}_{pack}"
-        custom_packnick = f"{custompack}" or f"{f_name}"
+        custom_packnick = f"{pack} punya @{u_name}" or f"{custompack}"
         packnick = f"{custom_packnick}"
         cmd = "/newpack"
         file = io.BytesIO()
@@ -179,7 +179,7 @@ async def kang(args):
                         await bot.send_read_acknowledge(conv.chat_id)
                         return await args.edit(
                             "__S1 dalam pencurian berhasil mencuri__"
-                            f"[stickers](t.me/addstickers/{packname})__!__",
+                            f" [stickers](t.me/addstickers/{packname})__!__",
                             parse_mode="md",
                         )
                 if is_anim:
@@ -247,7 +247,7 @@ async def kang(args):
 
         await args.edit(
             "__S1 dalam pencurian berhasil mencuri__"
-            f"[stickers](t.me/addstickers/{packname})__!__",
+            f" [stickers](t.me/addstickers/{packname})__!__",
             parse_mode="md",
         )
 
